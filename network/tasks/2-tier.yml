@@ -1,0 +1,18 @@
+- name: Terraform - 2-Tier -  Init
+  shell: terraform init
+  args:
+    chdir: terraform/2-tier/
+
+- name: Terraform - 2-Tier - Apply
+  terraform:
+    project_path: terraform/2-tier/
+    state: "{{ state }}"
+    workspace: "{{ name }}"
+    variables: {
+      "region"            : "{{ region }}",
+      "vpc_range"         : "{{ vpc_range }}",
+      "public_subnet_1a"  : "{{ public_subnet_1a }}",
+      "public_subnet_1b"  : "{{ public_subnet_1b }}",
+      "private_subnet_1a" : "{{ private_subnet_1a }}",
+      "private_subnet_1b" : "{{ private_subnet_1b }}"
+    }

@@ -1,0 +1,20 @@
+- name: Terraform - 3-Tier -  Init
+  shell: terraform init
+  args:
+    chdir: terraform/3-tier/
+
+- name: Terraform - 3-Tier - Apply
+  terraform:
+    project_path: terraform/3-tier/
+    state: "{{ state }}"
+    workspace: "{{ name }}"
+    variables: {
+      "region"            : "{{ region }}",
+      "vpc_range"         : "{{ vpc_range }}",
+      "public_subnet_1a"  : "{{ public_subnet_1a }}",
+      "public_subnet_1b"  : "{{ public_subnet_1b }}",
+      "private_subnet_1a" : "{{ private_subnet_1a }}",
+      "private_subnet_1b" : "{{ private_subnet_1b }}",
+      "db_subnet_1a"      : "{{ db_subnet_1a }}",
+      "db_subnet_1b"      : "{{ db_subnet_1b }}"
+    }

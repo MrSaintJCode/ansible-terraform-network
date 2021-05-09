@@ -1,0 +1,13 @@
+# Variables to set
+# "name" 
+# "region"
+# "vpc_range"
+# "public_subnet_1a"
+# "public_subnet_1b"
+# "private_subnet_1a"
+# "private_subnet_1b"
+# "state"
+# "type"
+- hosts: localhost
+  roles:
+    - network

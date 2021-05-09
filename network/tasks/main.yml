@@ -1,0 +1,9 @@
+
+# tasks file for terraform
+- name: "2-Tier Network"
+  import_tasks: 2-tier.yml
+  when: ( type == "2" )
+
+- name: "3-Tier Network"
+  import_tasks: 3-tier.yml
+  when: ( type == "3" )
