@@ -18,3 +18,10 @@
       "db_subnet_1a"      : "{{ db_subnet_1a }}",
       "db_subnet_1b"      : "{{ db_subnet_1b }}"
     }
+  register: network
+
+- debug:
+    msg:
+      - "NAT 1a: {{ network.outputs.workspace_nat_gateway_1a.value }}"
+      - "NAT 1b: {{ network.outputs.workspace_nat_gateway_1b.value }}"
+  when: ( state == "present" )

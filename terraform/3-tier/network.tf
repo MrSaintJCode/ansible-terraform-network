@@ -36,7 +36,7 @@ resource "aws_subnet" "workspace_public_subnet_1b" {
   vpc_id                  = aws_vpc.workspace_vpc.id
   cidr_block              = var.public_subnet_1b
   map_public_ip_on_launch = true
-  availability_zone       = "${ var.region }b"
+  availability_zone       = "${var.region}b"
   tags = {
     "Name"         = "${terraform.workspace}-public_1b"
     "Env"          = "${terraform.workspace}"
